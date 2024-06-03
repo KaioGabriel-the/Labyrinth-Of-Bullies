@@ -395,8 +395,7 @@ position = Vector2( -7, 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-animation = "Run_Down"
-frame = 2
+animation = "Idle_Left"
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

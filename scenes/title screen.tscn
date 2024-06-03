@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/deadfrog/Deadfrog Personal Use Only.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Imagens/hallway (5).png" type="Texture" id=2]
+[ext_resource path="res://script/EXIT.gd" type="Script" id=3]
+[ext_resource path="res://script/START.gd" type="Script" id=4]
 
 [sub_resource type="Gradient" id=4]
 colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1 )
@@ -87,9 +89,10 @@ margin_top = -20.0
 margin_right = 87.0
 margin_bottom = 29.0
 custom_colors/font_color = Color( 1, 0.972549, 0.972549, 1 )
-custom_colors/font_color_hover = Color( 0.462745, 1, 0.0588235, 1 )
+custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "START"
+script = ExtResource( 4 )
 
 [node name="EXIT" type="Button" parent="."]
 margin_left = 472.0
@@ -97,6 +100,10 @@ margin_top = 362.0
 margin_right = 578.0
 margin_bottom = 411.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.439216, 0.882353, 0.0705882, 1 )
+custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "EXIT"
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="START" to="START" method="_on_START_pressed"]
+[connection signal="pressed" from="EXIT" to="EXIT" method="_on_EXIT_pressed"]
