@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/classroom (15).png-f4ee30cf563ad8cac802e62373e206cb.stex"
+path="res://.import/exterior (4).png-0ed291bdd00bd71cdb8543ca8401b6ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Abandoned School Backgrounds/classroom (15).png"
-dest_files=[ "res://.import/classroom (15).png-f4ee30cf563ad8cac802e62373e206cb.stex" ]
+source_file="res://assets/Imagens/exterior (4).png"
+dest_files=[ "res://.import/exterior (4).png-0ed291bdd00bd71cdb8543ca8401b6ce.stex" ]
 
 [params]
 
