@@ -28,7 +28,7 @@ var spritesDict : Dictionary = {
 		"run": "Run_Right"
 	}
 }
-var running : float;
+var running : bool = false;
 
 func _ready():
 	pass # Replace with function body.
@@ -43,12 +43,9 @@ func _process(delta):
 	var _axis = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down");
 	var _newSpeed: float = 0.0;
 	if _axis != Vector2.ZERO:
-		if running == 0.0:
-				direction = _axis;
-				_newSpeed = moveSpeed;
-		else:
-			direction = _axis;
-			_newSpeed = runningSpeed;
+		direction = _axis;
+		_newSpeed = moveSpeed if !running else runningSpeed;
+		
 	# Definir velocidade com base no input
 	var _sp = accel if _axis != Vector2.ZERO else fric;
 	actualSpeed = move_toward(actualSpeed, _newSpeed, _sp);
@@ -63,7 +60,7 @@ func _process(delta):
 func manage_animation():
 	# Identificar que estado estamos (idle, walk ou run).
 	var _state = "idle" if velocity.length() == 0 else "walk";
-#	# TODO: _state = "run" if running else _state;
+	_state = "run" if running else _state;
 	
 	# Obter em graus o valor da direção
 	var _degrees = abs(rad2deg(direction.angle()) + 90);
