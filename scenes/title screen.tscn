@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/deadfrog/Deadfrog Personal Use Only.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Imagens/hallway (5).png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=5]
+gradient = SubResource( 4 )
+fill_to = Vector2( 0, 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -18,6 +25,9 @@ size = 42
 font_data = ExtResource( 1 )
 
 [node name="title screen" type="CanvasLayer"]
+__meta__ = {
+"_edit_horizontal_guides_": [ -76.0 ]
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -33,6 +43,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 5 )
+expand = true
+
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -42,7 +58,21 @@ margin_left = -344.0
 margin_top = -207.0
 margin_right = 362.0
 margin_bottom = -4.0
-custom_colors/font_color = Color( 0.729412, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "WALK DARKLY
+"
+
+[node name="Label" type="Label" parent="Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -353.0
+margin_top = -98.5
+margin_right = 353.0
+margin_bottom = 104.5
+custom_colors/font_color = Color( 0.956863, 0.105882, 0.105882, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "WALK DARKLY
 "
