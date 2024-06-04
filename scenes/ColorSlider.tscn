@@ -3,8 +3,6 @@
 [ext_resource path="res://script/ColorSlider.gd" type="Script" id=1]
 
 [node name="ColorSlider" type="HSlider"]
-margin_left = 30.0
-margin_top = 21.0
-margin_right = 118.0
-margin_bottom = 37.0
+margin_right = 88.0
+margin_bottom = 16.0
 script = ExtResource( 1 )
