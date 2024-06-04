@@ -40,7 +40,7 @@ func _process(delta):
 	running = Input.get_action_strength("run") != 0.0;
 	
 	# Obter direção do input do jogador.
-	var _axis = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down");
+	var _axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down");
 	var _newSpeed: float = 0.0;
 	if _axis != Vector2.ZERO:
 		direction = _axis;
