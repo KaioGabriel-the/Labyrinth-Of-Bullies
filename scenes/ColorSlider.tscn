@@ -5,4 +5,5 @@
 [node name="ColorSlider" type="HSlider"]
 margin_right = 88.0
 margin_bottom = 16.0
+scrollable = false
 script = ExtResource( 1 )
