@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2.png-b8d86529f567be2c97d1b9b443666cb6.stex"
+path="res://.import/Props 1.1.png-f31292ae539ffc1ae567dd8ee81cdfd2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/craftpix-net-832833-free-scrolling-city-backgrounds-pixel-art/1 Backgrounds/5/Day/2.png"
-dest_files=[ "res://.import/2.png-b8d86529f567be2c97d1b9b443666cb6.stex" ]
+source_file="res://assets/School Daze Tileset/Props 1.1.png"
+dest_files=[ "res://.import/Props 1.1.png-f31292ae539ffc1ae567dd8ee81cdfd2.stex" ]
 
 [params]
 
