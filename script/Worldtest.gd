@@ -19,6 +19,8 @@ func _on_HSlider_value_changed(value):
 
 func _process(delta):
 	$TileMap.material.set_shader_param("gray_scale_intensity", Global.colorValue)
+	$TileMap2.material.set_shader_param("gray_scale_intensity", Global.colorValue)
+	$TileMap3.material.set_shader_param("gray_scale_intensity", Global.colorValue)
 	_on_HSlider_value_changed(Global.colorValue)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
