@@ -1,5 +1,4 @@
 extends Node2D
-
 func _ready():
 	pass
 
@@ -18,9 +17,12 @@ func _on_HSlider_value_changed(value):
 		$TileMap2.set_collision_mask_bit(2 , true)
 
 func _process(delta):
-	$TileMap.material.set_shader_param("gray_scale_intensity", Global.colorValue)
-	$TileMap2.material.set_shader_param("gray_scale_intensity", Global.colorValue)
-	$TileMap3.material.set_shader_param("gray_scale_intensity", Global.colorValue)
+	var tilemap : TileMap = $TileMap
+	var tilemap2 : TileMap = $TileMap2
+	var tilemap3 : TileMap = $TileMap3
+	tilemap.material.set_shader_param("gray_scale_intensity", Global.colorValue)
+	tilemap2.material.set_shader_param("gray_scale_intensity", Global.colorValue)
+	tilemap3.material.set_shader_param("gray_scale_intensity", Global.colorValue)
 	_on_HSlider_value_changed(Global.colorValue)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
