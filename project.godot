@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "NinePatchRect",
+"class": "DialogBox",
+"language": "GDScript",
+"path": "res://script/DialogBox.gd"
+}, {
 "base": "Resource",
 "class": "Dialogue",
 "language": "GDScript",
 "path": "res://script/DinamicDialogue.gd"
 } ]
 _global_script_class_icons={
+"DialogBox": "",
 "Dialogue": ""
 }
 
@@ -27,7 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
-DialogBox="*res://scenes/DialogBox.tscn"
+Interface="*res://scenes/Interface.tscn"
 
 [gui]
 
