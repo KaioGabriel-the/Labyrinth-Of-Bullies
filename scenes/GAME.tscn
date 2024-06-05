@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://script/Worldtest.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float gray_scale_intensity : hint_range(0.0, 1.0);
+
+void fragment() {
+    COLOR = texture(TEXTURE, UV);
+    float lumi = (COLOR.r + COLOR.g + COLOR.b) / 3.0;
+    COLOR.rgb = mix(COLOR.rgb, vec3(lumi), gray_scale_intensity);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/gray_scale_intensity = null
+
+[sub_resource type="TileSet" id=4]
+
+[sub_resource type="TileSet" id=5]
+
+[node name="GAME" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+material = SubResource( 2 )
+tile_set = SubResource( 4 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -196606, 1, 0, -196604, 1, 0, -196602, 1, 0 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = SubResource( 5 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0 )
+
+[node name="TileMap3" type="TileMap" parent="."]
+format = 1
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 498, 588 )
+collision_layer = 4
+collision_mask = 4

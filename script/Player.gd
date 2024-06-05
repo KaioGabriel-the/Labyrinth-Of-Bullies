@@ -28,7 +28,7 @@ var spritesDict : Dictionary = {
 		"run": "Run_Right"
 	}
 }
-var running : bool = false;
+var running;
 
 func _ready():
 	pass # Replace with function body.
@@ -37,7 +37,10 @@ func _ready():
 
 func _process(delta):
 	# Obter estado de running
-	running = Input.get_action_strength("run") != 0.0;
+	if velocity.length() == 0:
+		running = ""
+	else:
+		running = Input.get_action_strength("run")
 	
 	# Obter direção do input do jogador.
 	var _axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down");

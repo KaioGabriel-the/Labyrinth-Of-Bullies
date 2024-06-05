@@ -31,7 +31,6 @@ texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6.00018, -7.00014 )
-scale = Vector2( 1, 1 )
 
 [node name="ColorSlider" parent="Player" instance=ExtResource( 3 )]
 margin_left = -49.0

@@ -7,14 +7,14 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.284916, 1, 1, 1, 0.516388, 1, 1,
 [node name="Pulse" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 1000
+one_shot = true
 explosiveness = 0.9
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 100.0
 linear_accel = -120.0
 damping_random = 1.0
-color = Color( 0.972549, 0.972549, 0.972549, 1 )
+color = Color( 0.992157, 0.956863, 0.956863, 1 )
 color_ramp = SubResource( 1 )
-hue_variation = -0.2
-hue_variation_random = 0.5
