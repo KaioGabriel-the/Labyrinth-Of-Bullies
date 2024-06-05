@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0, 0.329609, 0.553073, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.284916, 1, 1, 1, 0.516388, 1, 1, 1, 0 )
 
 [node name="Pulse" type="Node2D"]
 
@@ -13,6 +14,7 @@ gravity = Vector2( 0, 0 )
 initial_velocity = 100.0
 linear_accel = -120.0
 damping_random = 1.0
+color = Color( 0.972549, 0.972549, 0.972549, 1 )
 color_ramp = SubResource( 1 )
 hue_variation = -0.2
 hue_variation_random = 0.5
