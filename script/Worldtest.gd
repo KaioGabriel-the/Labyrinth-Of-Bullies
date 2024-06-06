@@ -25,10 +25,7 @@ func _on_HSlider_value_changed(value):
 		tileGray.set_collision_mask_bit(2 , true)
 
 func _process(delta):
-	tileColored.material.set_shader_param("gray_scale_intensity", Global.colorValue)
-	tileGray.material.set_shader_param("gray_scale_intensity", Global.colorValue)
-	tileGeneral.material.set_shader_param("gray_scale_intensity", Global.colorValue)
-	_on_HSlider_value_changed(Global.colorValue)
-	
-	if Input.is_action_just_pressed("ui_cancel"):
-		pass
+	tileColored.material.set_shader_param("gray_scale_intensity", Global.sliderValue)
+	tileGray.material.set_shader_param("gray_scale_intensity", Global.sliderValue)
+	tileGeneral.material.set_shader_param("gray_scale_intensity", Global.sliderValue)
+	_on_HSlider_value_changed(Global.sliderValue)
