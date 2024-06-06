@@ -90,7 +90,7 @@ func _process(delta):
 		modulate = Color.white
 		move_and_slide(velocity)
 	else:
-		modulate = Color.red
+		modulate = Color.black
 		print("Morri.")
 
 	manage_animation()
