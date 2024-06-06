@@ -36,11 +36,15 @@ var spritesDict : Dictionary = {
 var running : bool
 var stunned: bool = false
 var stunnedTimer: int = false
+var dead : bool = false
 var _axis : Vector2 = Vector2.ZERO
+var startOnce: bool = false # Flag para indicar se o evento start já ocorreu
 onready var animation : AnimatedSprite = $AnimatedSprite
+onready var timer : Timer = $Timer
 
 func _ready():
-	pass # Replace with function body.
+	# Connectando o sinal timeout do timer
+	timer.connect("timeout", self, "_on_Timer_timeout")
 
 func _process(delta):
 	# Obter estado de running
@@ -102,7 +106,7 @@ func manage_animation():
 	if stunned == true:
 		_state = "death"
 		play_death_animation()
-		return
+		
 	# Obter em graus o valor da direção
 	var _degrees = abs(rad2deg(direction.angle()) + 90)
 	
@@ -123,4 +127,12 @@ func play_death_animation():
 func _on_death_animation_finished():
 	animation.stop()
 	animation.frame = animation.frames.get_frame_count(animation.animation) - 1
+
+	# Iniciando o timer apenas uma vez quando o jogador morre
+	if !startOnce:
+		timer.start()
+		startOnce = true
+
+func _on_Timer_timeout():
+	get_tree().change_scene("res://scenes/Game over.tscn")
 

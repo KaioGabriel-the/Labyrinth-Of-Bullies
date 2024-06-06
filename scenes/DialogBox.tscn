@@ -14,7 +14,7 @@ margin_left = 24.0
 margin_top = 11.0
 margin_right = 230.0
 margin_bottom = 49.0
-text = "Press Enter to Hint"
+text = "Texto"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05

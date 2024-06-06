@@ -7,7 +7,8 @@ onready var timer = $Timer
 var msg_queue : Array = []
 
 func _ready():
-	text.bbcode_text = ""
+	text.bbcode_text = "Press Enter to Hint";
+	show_message()
 	
 	
 func _input(event):
