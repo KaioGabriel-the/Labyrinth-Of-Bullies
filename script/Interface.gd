@@ -11,8 +11,6 @@ func add_text(_msg) -> void:
 func _process(delta):
 	if Input.is_action_just_pressed("ui_home"):
 		var _dialog = [
-			"sexo é bom",
-			"ops, engasgei",
-			"rsrsrsrs"
+			"Por enquanto nada"
 		];
 		dialog_box.add_message(_dialog);

@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Dialogue",
 "language": "GDScript",
 "path": "res://script/DinamicDialogue.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://script/Worldtest.gd"
 } ]
 _global_script_class_icons={
 "DialogBox": "",
-"Dialogue": ""
+"Dialogue": "",
+"Level": ""
 }
 
 [application]
