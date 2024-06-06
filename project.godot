@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Dialogue",
 "language": "GDScript",
 "path": "res://script/DinamicDialogue.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://script/Worldtest.gd"
 } ]
 _global_script_class_icons={
 "DialogBox": "",
-"Dialogue": ""
+"Dialogue": "",
+"Level": ""
 }
 
 [application]
@@ -37,6 +43,7 @@ Interface="*res://scenes/Interface.tscn"
 
 [display]
 
+window/size/width=960
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -104,6 +111,8 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/shadows/filter_mode=0
+quality/filters/anisotropic_filter_level=1
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
