@@ -1,25 +1,27 @@
 extends Node2D
+
+onready var tilemap : TileMap = $TileColored
+onready var tilemap2 : TileMap = $TileGray
+onready var tilemap3 : TileMap = $TileGeneral
+
 func _ready():
 	pass
 
 func _on_HSlider_value_changed(value):
 	# Se o valor do HSlider for maior que 0.5, TileMap 1 está visível e TileMap 2 está invisível
 	if value > 0.5:
-		$TileMap.visible = true
-		$TileMap.set_collision_mask_bit(2 , true)
-		$TileMap2.visible = false
-		$TileMap2.set_collision_mask_bit(2, false)
+		tilemap.visible = true
+		tilemap.set_collision_mask_bit(2 , true)
+		tilemap2.visible = false
+		tilemap2.set_collision_mask_bit(2, false)
 	# Se o valor do HSlider for menor ou igual a 0.5, TileMap 2 está visível e TileMap 1 está invisível
 	else:
-		$TileMap.visible = false
-		$TileMap.set_collision_mask_bit(2 , false)
-		$TileMap2.visible = true
-		$TileMap2.set_collision_mask_bit(2 , true)
+		tilemap.visible = false
+		tilemap.set_collision_mask_bit(2 , false)
+		tilemap2.visible = true
+		tilemap2.set_collision_mask_bit(2 , true)
 
 func _process(delta):
-	var tilemap : TileMap = $TileMap
-	var tilemap2 : TileMap = $TileMap2
-	var tilemap3 : TileMap = $TileMap3
 	tilemap.material.set_shader_param("gray_scale_intensity", Global.colorValue)
 	tilemap2.material.set_shader_param("gray_scale_intensity", Global.colorValue)
 	tilemap3.material.set_shader_param("gray_scale_intensity", Global.colorValue)
