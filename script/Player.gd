@@ -75,7 +75,7 @@ func _process(delta):
 		var _tmaps = [_tmap1, _tmap2]
 		for i in range(len(_tmaps)):
 			var _tmap = _tmaps[i]
-			var _consider = (i == 1 and Global.colorValue < 0.50) or (i == 0 and Global.colorValue > 0.50)
+			var _consider = (i == 1 and float(ArduinoEsplora.message_to_receive) < 0.50) or (i == 0 and float(ArduinoEsplora.message_to_receive) > 0.50)
 			if !_consider:
 				continue
 			# Converte a posição do mundo para a posição no tilemap
