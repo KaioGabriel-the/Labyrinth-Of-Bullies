@@ -1,5 +1,7 @@
 extends Node2D
 
+## DEPRECATED: Código em desuso.
 
 func _process(delta):
-	$"Classroom(10)".material.set_shader_param("gray_scale_intensity", Global.colorValue)
+	var _grayScaleValue = Global.colorValue / 100.0;
+	$"Classroom(10)".material.set_shader_param("gray_scale_intensity", _grayScaleValue)

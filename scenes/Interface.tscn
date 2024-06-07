@@ -12,7 +12,12 @@ newMessage = ExtResource( 4 )
 [node name="DialogBox" parent="." instance=ExtResource( 2 )]
 
 [node name="ColorSlider" parent="." instance=ExtResource( 1 )]
-margin_left = 459.0
-margin_top = 518.0
-margin_right = 547.0
-margin_bottom = 534.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -56.0
+margin_right = 80.0
+margin_bottom = -40.0
+rect_pivot_offset = Vector2( 80, 8 )

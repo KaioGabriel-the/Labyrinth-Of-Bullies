@@ -7,6 +7,8 @@ var velocity : Vector2 = Vector2.ZERO
 var actualSpeed: float = 0.0
 var accel: float = 12
 var fric: float = 30
+var directionX = ArduinoEsplora.axisXControl
+var directionY = ArduinoEsplora.axisYControl
 var spritesDict : Dictionary = {
 	0: {
 		"idle": "Idle_Up",
@@ -56,6 +58,14 @@ func _process(delta):
 	# Obter direção do input do jogador.
 	if stunned == true:
 		_axis = Vector2.ZERO
+	if Global.usingEsplora == true:
+		ArduinoEsplora.axisXControl = clamp(ArduinoEsplora.axisXControl, -1.0, 1.0);
+		ArduinoEsplora.axisYControl = clamp(ArduinoEsplora.axisYControl, -1.0, 1.0);
+		
+		print("Axis X: ", ArduinoEsplora.axisXControl)
+		print("Axis Y: ", ArduinoEsplora.axisYControl)
+		
+		_axis = Vector2(ArduinoEsplora.axisXControl,ArduinoEsplora.axisYControl)
 	else:
 		_axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	var _newSpeed: float = 0.0
@@ -75,7 +85,8 @@ func _process(delta):
 		var _tmaps = [_tmap1, _tmap2]
 		for i in range(len(_tmaps)):
 			var _tmap = _tmaps[i]
-			var _consider = (i == 1 and float(ArduinoEsplora.message_to_receive) < 0.50) or (i == 0 and float(ArduinoEsplora.message_to_receive) > 0.50)
+			var _consider = (i == 1 and float(Global.sliderValue) < 20) \
+			or (i == 0 and float(Global.sliderValue) > 80)
 			if !_consider:
 				continue
 			# Converte a posição do mundo para a posição no tilemap
