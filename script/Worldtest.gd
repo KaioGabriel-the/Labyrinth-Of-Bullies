@@ -25,7 +25,9 @@ func _on_HSlider_value_changed(value):
 		tileGray.set_collision_mask_bit(2 , true)
 
 func _process(delta):
-	tileColored.material.set_shader_param("gray_scale_intensity", Global.sliderValue)
-	tileGray.material.set_shader_param("gray_scale_intensity", Global.sliderValue)
-	tileGeneral.material.set_shader_param("gray_scale_intensity", Global.sliderValue)
+	# Tratar valor do slider para pertencer ao intervalo 0.0 - 1.0.
+	var _grayScaleValue = Global.sliderValue / 100.0;
+	tileColored.material.set_shader_param("gray_scale_intensity", _grayScaleValue)
+	tileGray.material.set_shader_param("gray_scale_intensity", _grayScaleValue)
+	tileGeneral.material.set_shader_param("gray_scale_intensity", _grayScaleValue)
 	_on_HSlider_value_changed(Global.sliderValue)

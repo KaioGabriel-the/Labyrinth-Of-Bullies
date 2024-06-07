@@ -17,16 +17,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="SendVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_right = 1024.0
+margin_right = 960.0
 margin_bottom = 52.0
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/SendVBoxContainer"]
-margin_right = 1024.0
+margin_right = 960.0
 margin_bottom = 24.0
 
 [node name="SendHBoxContainer" type="HBoxContainer" parent="VBoxContainer/SendVBoxContainer"]
 margin_top = 28.0
-margin_right = 1024.0
+margin_right = 960.0
 margin_bottom = 52.0
 
 [node name="SendButton" type="Button" parent="VBoxContainer/SendVBoxContainer/SendHBoxContainer"]
@@ -42,14 +42,14 @@ text = "w/endline"
 
 [node name="PortHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 56.0
-margin_right = 1024.0
+margin_right = 960.0
 margin_bottom = 76.0
 
 [node name="PortOptionButton" type="OptionButton" parent="VBoxContainer/PortHBoxContainer"]
 margin_right = 55.0
 margin_bottom = 20.0
 text = "Port"
-items = [ "Port", null, false, 0, null, "/dev/ttyS0", null, false, 1, null, "/dev/ttyS9", null, false, 2, null, "/dev/ttyS8", null, false, 3, null, "/dev/ttyS7", null, false, 4, null, "/dev/ttyS6", null, false, 5, null, "/dev/ttyS5", null, false, 6, null, "/dev/ttyS31", null, false, 7, null, "/dev/ttyS30", null, false, 8, null, "/dev/ttyS3", null, false, 9, null, "/dev/ttyS29", null, false, 10, null, "/dev/ttyS28", null, false, 11, null, "/dev/ttyS27", null, false, 12, null, "/dev/ttyS26", null, false, 13, null, "/dev/ttyS25", null, false, 14, null, "/dev/ttyS24", null, false, 15, null, "/dev/ttyS23", null, false, 16, null, "/dev/ttyS22", null, false, 17, null, "/dev/ttyS21", null, false, 18, null, "/dev/ttyS20", null, false, 19, null, "/dev/ttyS2", null, false, 20, null, "/dev/ttyS19", null, false, 21, null, "/dev/ttyS18", null, false, 22, null, "/dev/ttyS17", null, false, 23, null, "/dev/ttyS16", null, false, 24, null, "/dev/ttyS15", null, false, 25, null, "/dev/ttyS14", null, false, 26, null, "/dev/ttyS13", null, false, 27, null, "/dev/ttyS12", null, false, 28, null, "/dev/ttyS11", null, false, 29, null, "/dev/ttyS10", null, false, 30, null, "/dev/ttyS1", null, false, 31, null, "/dev/ttyS4", null, false, 32, null, "/dev/ttyACM1", null, false, 33, null ]
+items = [ "Port", null, false, 0, null, "/dev/ttyS0", null, false, 1, null, "/dev/ttyS9", null, false, 2, null, "/dev/ttyS8", null, false, 3, null, "/dev/ttyS7", null, false, 4, null, "/dev/ttyS6", null, false, 5, null, "/dev/ttyS5", null, false, 6, null, "/dev/ttyS31", null, false, 7, null, "/dev/ttyS30", null, false, 8, null, "/dev/ttyS3", null, false, 9, null, "/dev/ttyS29", null, false, 10, null, "/dev/ttyS28", null, false, 11, null, "/dev/ttyS27", null, false, 12, null, "/dev/ttyS26", null, false, 13, null, "/dev/ttyS25", null, false, 14, null, "/dev/ttyS24", null, false, 15, null, "/dev/ttyS23", null, false, 16, null, "/dev/ttyS22", null, false, 17, null, "/dev/ttyS21", null, false, 18, null, "/dev/ttyS20", null, false, 19, null, "/dev/ttyS2", null, false, 20, null, "/dev/ttyS19", null, false, 21, null, "/dev/ttyS18", null, false, 22, null, "/dev/ttyS17", null, false, 23, null, "/dev/ttyS16", null, false, 24, null, "/dev/ttyS15", null, false, 25, null, "/dev/ttyS14", null, false, 26, null, "/dev/ttyS13", null, false, 27, null, "/dev/ttyS12", null, false, 28, null, "/dev/ttyS11", null, false, 29, null, "/dev/ttyS10", null, false, 30, null, "/dev/ttyS1", null, false, 31, null, "/dev/ttyS4", null, false, 32, null, "/dev/ttyACM0", null, false, 33, null ]
 selected = 0
 
 [node name="BaudRateOptionButton" type="OptionButton" parent="VBoxContainer/PortHBoxContainer"]
@@ -68,7 +68,7 @@ text = "Refresh"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 80.0
-margin_right = 1024.0
+margin_right = 960.0
 margin_bottom = 104.0
 
 [node name="ClearButton" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -91,7 +91,7 @@ text = "Auto scroll"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 108.0
-margin_right = 1024.0
+margin_right = 960.0
 margin_bottom = 112.0
 
 [node name="SerialReadRichTextLabel" type="RichTextLabel" parent="."]

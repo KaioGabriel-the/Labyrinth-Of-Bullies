@@ -25,18 +25,18 @@ func _ready():
 
 func _physics_process(delta):
 	if PORT != null && PORT.get_available()>0:
-		msg = "";
 		for i in range(PORT.get_available()):
-			message_to_receive += str(PORT.read())
-		
-		if message_to_receive != "]":
-			# Fim da linha. Tratar mensagem.
-			print("Tratando mensagem: ", msg);
-			Global.sliderValue = float(msg);
-			msg = "";	# Mensagem volta a ficar vazia. Está pronta pra próxima.
-		else:
-			# Alimentar mensagem
-			msg += message_to_receive;
+			var _currentChar = str(PORT.read())
+			if _currentChar == "]":
+				# Fim da linha. Tratar mensagem.
+				var _receivedValue = float(msg);
+				if _receivedValue == clamp(_receivedValue, 0.0, 100.0):
+					var _newSliderValue = _receivedValue;
+					Global.sliderValueTo = _newSliderValue;
+				msg = "";	# Mensagem volta a ficar vazia. Está pronta pra próxima.
+			else:
+				# Alimentar mensagem
+				msg += _currentChar;
 			
 func send_text():
 	var text=message_to_send.text.replace("\n",com.endline)
