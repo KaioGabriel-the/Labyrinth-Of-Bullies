@@ -12,13 +12,13 @@ func _ready():
 
 func _on_HSlider_value_changed(value):
 	# Se o valor do HSlider for maior que 0.5, TileMap 1 está visível e TileMap 2 está invisível
-	if value > 0.5:
+	if value > 80:
 		tileColored.visible = true
 		tileColored.set_collision_mask_bit(2 , true)
 		tileGray.visible = false
 		tileGray.set_collision_mask_bit(2, false)
 	# Se o valor do HSlider for menor ou igual a 0.5, TileMap 2 está visível e TileMap 1 está invisível
-	else:
+	elif value < 20:
 		tileColored.visible = false
 		tileColored.set_collision_mask_bit(2 , false)
 		tileGray.visible = true

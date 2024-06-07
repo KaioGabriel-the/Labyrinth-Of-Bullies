@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://script/ColorSlider.gd" type="Script" id=1]
+[ext_resource path="res://textures/lgbt_to_sadness.tres" type="Texture" id=2]
 
-[node name="ColorSlider" type="HSlider"]
-margin_right = 88.0
-margin_bottom = 16.0
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="TextureRect" type="TextureRect"]
+margin_top = 4.0
+margin_right = 229.0
+margin_bottom = 12.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ColorSlider" type="HSlider" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.0
+margin_bottom = 4.0
+custom_styles/slider = SubResource( 1 )
 scrollable = false
 script = ExtResource( 1 )
