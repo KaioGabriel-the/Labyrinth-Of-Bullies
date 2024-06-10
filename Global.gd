@@ -1,7 +1,7 @@
 extends Node
 
-var player = preload("res://scenes/Player.tscn")
-var dialogue = preload("res://script/DinamicDialogue.gd")
+var player
+var navigation
 var worldNode: Level;
 var sliderValueTo = 0.0;
 var sliderValue = 0.0;

@@ -4,7 +4,7 @@ class_name Level
 
 onready var tileColored : TileMap = $TileColored
 onready var tileGray : TileMap = $TileGray
-onready var tileGeneral : TileMap = $TileGeneral
+onready var tileGeneral : TileMap = $Navigation2D/TileGeneral
 
 func _ready():
 	Global.worldNode = self;

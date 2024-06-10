@@ -45,6 +45,7 @@ onready var animation : AnimatedSprite = $AnimatedSprite
 onready var timer : Timer = $Timer
 
 func _ready():
+	Global.player = self
 	# Connectando o sinal timeout do timer
 	timer.connect("timeout", self, "_on_Timer_timeout")
 
