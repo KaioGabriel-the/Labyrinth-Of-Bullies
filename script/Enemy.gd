@@ -7,6 +7,8 @@ var path : Array = []
 var navigation_path : Navigation2D = null
 var player = null
 
+## Posição destino enquanto está patrulhando. Essa variável será aleatorizada no timeout.
+var wanderPos: Vector2 ;
 onready var destinyPos: Vector2 = global_position;
 var patrolling : bool = false;
 onready var rangeToPursuit: float = 150.0;
@@ -16,6 +18,7 @@ func _ready():
 	update_references()
 
 func _process(delta):
+	update()
 	update_references()
 	if player != null and navigation_path != null:
 		generate_path()
@@ -46,13 +49,14 @@ func generate_path():
 		
 		# Por padrão, o inimigo vai se mover até essa posição.
 		# TODO: Colocar um valor mais apropriado.
-		var _destinyPos : Vector2
+		var _destinyPos : Vector2 = wanderPos
 		if _diff.length() < rangeToPursuit:
 			_destinyPos = player.global_position;
-			
-			
-		
+
+
 		# Verificar se a posição global e a posição global do player são diferentes
+#		print("cabeçona");
+#		print("Pos: %s, Destino: %s" % [global_position, _destinyPos])
 		path = navigation_path.get_simple_path(global_position, _destinyPos, false);
 			
 		
@@ -69,9 +73,20 @@ func navigate():
 
 
 func _on_Timer_timeout():
-	var random_direction_x = rand_range(-1,1)
-	var random_direction_y = rand_range(-1,1)
-	var _destinyPos = global_position + Vector2(random_direction_x, random_direction_y)
+	var _wanderDistance = randi() % 256;
+	var random_direction_x = rand_range(-_wanderDistance, _wanderDistance)
+	if abs(random_direction_x) < 32: random_direction_x = 32 * sign(random_direction_x)
+	var random_direction_y = rand_range(-_wanderDistance, _wanderDistance)
+	if abs(random_direction_y) < 32: random_direction_y = 32 * sign(random_direction_y)
+	wanderPos = global_position + Vector2(random_direction_x, random_direction_y)
+	wanderPos.x = clamp(wanderPos.x, 0, 480);
+	wanderPos.y = clamp(wanderPos.y, 0, 480);
+#	wanderPos = wanderPos.linear_interpolate(Vector2(250, 250), 0.20);
+	
+	var _diff = global_position - wanderPos;
+	print("Diferença de posicoes: ", _diff)
+	print("Inimigo indo para: ", wanderPos)
+	
 
 func enemyPatrolling():
 	if patrolling == true:

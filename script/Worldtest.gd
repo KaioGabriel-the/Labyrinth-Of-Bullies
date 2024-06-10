@@ -2,8 +2,8 @@ extends Node2D
 class_name Level
 
 
-onready var tileColored : TileMap = $TileColored
-onready var tileGray : TileMap = $TileGray
+onready var tileColored : TileMap = $Navigation2D/TileColored
+onready var tileGray : TileMap = $Navigation2D/TileGray
 onready var tileGeneral : TileMap = $Navigation2D/TileGeneral
 
 func _ready():
