@@ -12,7 +12,35 @@ var wanderPos: Vector2 ;
 onready var destinyPos: Vector2 = global_position;
 var patrolling : bool = false;
 onready var rangeToPursuit: float = 150.0;
+var direction = Vector2.ZERO
+onready var animation = get_node("AnimatedSprite")
 
+var spritesDict : Dictionary = {
+	0: {
+		"idle": "Idle_Up",
+		"walk": "Walk_Up",
+		"run": "Run_Up",
+		"death" : "Death_Up"
+	},
+	2: {
+		"idle": "Idle_Down",
+		"walk": "Walk_Down",
+		"run": "Run_Down",
+		"death" : "Death_Down"
+	},
+	3: {
+		"idle": "Idle_Left",
+		"walk": "Walk_Left",
+		"run": "Run_Left",
+		"death" : "Death_Left"
+	},
+	1: {
+		"idle": "Idle_Right",
+		"walk": "Walk_Right",
+		"run": "Run_Right",
+		"death" : "Death_Right"
+	}
+}
 
 func _ready():
 	update_references()
@@ -24,8 +52,10 @@ func _process(delta):
 		generate_path()
 		navigate()
 		velocity = move_and_slide(velocity)
+		direction = velocity.normalized()
 #		print("Current Position:", global_position)
 	enemyPatrolling()
+	manage_animation()
 
 ## Atualiza o trajeto do inimigo
 func update_references():
@@ -91,3 +121,16 @@ func _on_Timer_timeout():
 func enemyPatrolling():
 	if patrolling == true:
 		_on_Timer_timeout()
+
+func manage_animation():
+	# Identificar que estado estamos (idle, walk ou run).
+	var _state = "idle" if velocity.length() == 0 else "walk"
+		
+	# Obter em graus o valor da direção
+	var _degrees = abs(rad2deg(direction.angle()) + 90)
+	
+	# Obter a chave correspondente a direção
+	var _key = floor(_degrees / 90)
+	var _animToPlay = spritesDict[int(_key)][_state]
+	
+	animation.play(_animToPlay)
