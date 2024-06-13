@@ -5,7 +5,7 @@ onready var PORT = SERCOMM.new()
 
 onready var com = $Com
 
-var port = "/dev/ttyACM0"
+var port = ""
 var baudRate = 9600
 var message_to_receive = "";
 var message_to_send
@@ -16,6 +16,7 @@ var axisYControl = 0
 var msg = "";
 
 func _ready():
+	port = PORT.list_ports()[-1]
 	set_physics_process(false)
 	PORT.close()
 	if port!=null and baudRate!=0:
