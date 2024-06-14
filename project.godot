@@ -28,18 +28,26 @@ _global_script_classes=[ {
 "class": "Level",
 "language": "GDScript",
 "path": "res://script/Worldtest.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://script/Player.gd"
 } ]
 _global_script_class_icons={
 "DialogBox": "",
 "Dialogue": "",
 "GDSerComm": "",
-"Level": ""
+"Level": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Walk Darkly"
 run/main_scene="res://scenes/title screen.tscn"
+boot_splash/image="res://Labiras_Logo.png"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [autoload]
