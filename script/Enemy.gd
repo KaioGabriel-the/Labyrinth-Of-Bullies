@@ -134,3 +134,8 @@ func manage_animation():
 	var _animToPlay = spritesDict[int(_key)][_state]
 	
 	animation.play(_animToPlay)
+
+
+func _on_Area2D_body_entered(body):
+	if body is Player:
+		Global.player.stunned = true

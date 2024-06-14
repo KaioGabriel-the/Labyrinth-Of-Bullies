@@ -1,7 +1,8 @@
 extends KinematicBody2D
+class_name Player
 
-var moveSpeed : float = 120.0
-var runningSpeed : float = 240.0
+var moveSpeed : float = 50
+var runningSpeed : float = 70
 var direction : Vector2 = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
 var actualSpeed: float = 0.0
@@ -67,8 +68,10 @@ func _process(delta):
 		print("Axis Y: ", ArduinoEsplora.axisYControl)
 		
 		_axis = Vector2(ArduinoEsplora.axisXControl,ArduinoEsplora.axisYControl)
-	else:
+	elif Global.usingEsplora == false and stunned == false:
 		_axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
+	else:
+		_axis = Vector2.ZERO
 	var _newSpeed: float = 0.0
 	if _axis != Vector2.ZERO:
 		direction = _axis
@@ -106,7 +109,7 @@ func _process(delta):
 		modulate = Color.white
 		move_and_slide(velocity)
 	else:
-		modulate = Color.black
+		modulate = Color.gray
 		print("Morri.")
 
 	manage_animation()
@@ -117,6 +120,7 @@ func manage_animation():
 	_state = "run" if running else _state
 	if stunned == true:
 		_state = "death"
+		
 		play_death_animation()
 		
 	# Obter em graus o valor da direção
