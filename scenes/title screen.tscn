@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/deadfrog/Deadfrog Personal Use Only.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Default_Make_a_normal_school_corridor_but_one_that_gives_the_f_1.jpg" type="Texture" id=2]
+[ext_resource path="res://script/Portugues.gd" type="Script" id=3]
 [ext_resource path="res://script/title screen.gd" type="Script" id=5]
 
 [sub_resource type="Gradient" id=4]
@@ -123,5 +124,14 @@ action_mode = 0
 text = "EXIT"
 script = SubResource( 7 )
 
+[node name="Portugues" type="Button" parent="Buttons"]
+margin_left = 409.0
+margin_top = 417.0
+margin_right = 562.0
+margin_bottom = 456.0
+text = "Portugues"
+script = ExtResource( 3 )
+
 [connection signal="pressed" from="Buttons/START" to="." method="_on_START_pressed"]
 [connection signal="pressed" from="Buttons/EXIT" to="." method="_on_EXIT_pressed"]
+[connection signal="pressed" from="Buttons/Portugues" to="Buttons/Portugues" method="_on_Portugues_pressed"]

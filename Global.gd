@@ -1,5 +1,6 @@
 extends Node
 
+var languagePtBr : bool = false
 var player
 var navigation
 var worldNode: Level;
