@@ -16,7 +16,7 @@ func _process(delta):
 	_button.grab_focus();
 	
 func _on_START_pressed():
-	get_tree().change_scene("res://scenes/World1.tscn")
+	get_tree().change_scene("res://scenes/WorldTutorial.tscn")
 
 
 func _on_EXIT_pressed():
