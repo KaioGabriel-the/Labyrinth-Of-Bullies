@@ -1,5 +1,6 @@
 extends Node
 
+var world1 : bool = false
 var languagePtBr : bool = false
 var player
 var navigation
