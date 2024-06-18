@@ -11,7 +11,7 @@ var player = null
 var wanderPos: Vector2 ;
 onready var destinyPos: Vector2 = global_position;
 var patrolling : bool = false;
-onready var rangeToPursuit: float = 150.0;
+onready var rangeToPursuit: float = 100.0;
 var direction = Vector2.ZERO
 onready var animation = get_node("AnimatedSprite")
 

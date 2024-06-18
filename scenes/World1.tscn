@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/School Daze Tileset/School Daze/Stage 1/Maps/Hallway/Full.png" type="Texture" id=1]
 [ext_resource path="res://assets/School Daze Tileset/School Daze/Stage 1/Maps/Hallway/Layer 1.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Teleport.tscn" type="PackedScene" id=9]
 [ext_resource path="res://blackWhite.tres" type="Material" id=10]
+[ext_resource path="res://scenes/Interface.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Shader" id=16]
 code = "shader_type canvas_item;
@@ -548,6 +549,8 @@ collision_mask = 0
 position = Vector2( 254, 171 )
 collision_layer = 4
 collision_mask = 4
+
+[node name="InterfaceMessage" parent="Enemy" instance=ExtResource( 11 )]
 
 [node name="Enemy2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 460, 71 )
