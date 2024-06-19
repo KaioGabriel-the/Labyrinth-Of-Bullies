@@ -105,10 +105,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 393.0
-margin_top = 419.0
-margin_right = 527.0
-margin_bottom = 468.0
+margin_left = 365.0
+margin_top = 422.0
+margin_right = 558.0
+margin_bottom = 471.0
 custom_colors/font_color_focus = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
@@ -117,6 +117,7 @@ action_mode = 0
 text = "BACK"
 
 [node name="transitionFadeOut" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [connection signal="pressed" from="Buttons/LanguageBR" to="." method="_on_LanguageBR_pressed"]
 [connection signal="pressed" from="Buttons/LanguageEUA" to="." method="_on_LanguageEUA_pressed"]

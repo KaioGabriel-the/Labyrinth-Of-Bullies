@@ -56,10 +56,10 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Reset" type="Button" parent="Buttons"]
-margin_left = 402.0
-margin_top = 245.0
-margin_right = 550.0
-margin_bottom = 294.0
+margin_left = 322.0
+margin_top = 256.0
+margin_right = 621.0
+margin_bottom = 305.0
 custom_colors/font_color_focus = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_colors/font_color = Color( 0.976471, 0.976471, 0.976471, 1 )
 custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
@@ -72,9 +72,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 329.0
+margin_left = 302.0
 margin_top = 301.0
-margin_right = 589.0
+margin_right = 601.0
 margin_bottom = 350.0
 custom_colors/font_color_focus = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -89,10 +89,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 407.0
-margin_top = 377.0
-margin_right = 513.0
-margin_bottom = 426.0
+margin_left = 302.0
+margin_top = 364.0
+margin_right = 601.0
+margin_bottom = 413.0
 custom_colors/font_color_focus = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_colors/font_color = Color( 0.976471, 0.976471, 0.976471, 1 )
 custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
@@ -101,6 +101,7 @@ action_mode = 0
 text = "EXIT"
 
 [node name="transitionFadeOut" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [connection signal="pressed" from="Buttons/Reset" to="." method="_on_Reset_pressed"]
 [connection signal="pressed" from="Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
