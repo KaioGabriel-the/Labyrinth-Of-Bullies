@@ -11,6 +11,9 @@ var sliderValue = 0.0;
 export var usingEsplora: bool = true;
 var fadeInScene : PackedScene = preload("res://scenes/transitionFadeIn.tscn")
 
+func _ready():
+	OS.center_window();
+
 func _process(delta):
 	# Aproximar valor atual da barra para o valor destino.
 	var _diff = abs(sliderValueTo - sliderValue);

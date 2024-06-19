@@ -8,6 +8,8 @@
 script = ExtResource( 3 )
 
 [node name="DialogBox" parent="." instance=ExtResource( 2 )]
+margin_right = 339.0
+margin_bottom = 76.0
 
 [node name="ColorSlider" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.5

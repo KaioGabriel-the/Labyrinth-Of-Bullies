@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var tween : Tween = Tween.new()
 onready var timer = $Timer
 var speed = 50
 var velocity : Vector2 = Vector2.ZERO
@@ -43,6 +44,7 @@ var spritesDict : Dictionary = {
 
 func _ready():
 	update_references()
+	add_child(tween)
 
 func _process(delta):
 	update()
@@ -66,15 +68,26 @@ func update_references():
 	else:
 		print("Player não inicializado corretamente.")
 
+## Função que gera o caminho que o inimigo vai percorrer.
 func generate_path():
+	# Se existir o player, e já houver definido o trajeto.
 	if player != null and navigation_path != null:
-		var _playerPos: Vector2 = player.global_position
-		var _diff: Vector2 = _playerPos - global_position
+		var _playerPos: Vector2 = player.global_position;
+		var _diff: Vector2 = _playerPos - global_position;
+		# Cria-se um valor parâmetro baseado na distancia do player até o inimigo.
+		# Se distance_to_ratio < 0, significa que o Player tá fora do range.
+		# Se distance_to_ratio > 0, significa que o Player tá dentro do range.
+		# Quanto mais próximo de 1.0, mais próximo o Player está do inimigo.
 		var distance_ratio = 1.0 - (_diff.length() / rangeToPursuit)
-		if distance_ratio > 0.0:
-			var shake_intensity = 0.35 + 0.25 * distance_ratio
-			shake_intensity = clamp(shake_intensity, 0.35, 0.6)
-			Global.camera.shakeCamera(shake_intensity, 0.5)
+		# Por padrão, o zoom sempre será esse.
+		var _zoom = 0.25;
+		if distance_ratio > 0.0:	# Player dentro do range
+			_zoom = 0.20;			# Câmera se aproxima
+			var intensity = 0.35 + 0.25 * distance_ratio;	# Intensidade varia de 0.35 a 0.60.
+			intensity = clamp(intensity, 0.35, 0.60);
+			Global.camera.shakeCamera(intensity, 0.5);
+		
+		Global.camera.zoom = lerp(Global.camera.zoom, Vector2(_zoom, _zoom), 0.069);
 		
 		var _destinyPos : Vector2 = wanderPos
 		if _diff.length() < rangeToPursuit:
