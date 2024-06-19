@@ -22,8 +22,7 @@ func _process(delta):
 	var _button = _buttons[selected] as Button
 	print(_button)
 	_button.call_deferred("grab_focus");
-	
-	print(selected)
+	changeLanguage();
 
 func _on_LanguageBR_pressed():
 	Global.languagePtBr = true
@@ -35,3 +34,13 @@ func _on_LanguageEUA_pressed():
 
 func _on_Back_pressed():
 	Global.transitionToScene("res://scenes/title screen.tscn")
+	
+func changeLanguage():
+	if Global.languagePtBr == true:
+		$Buttons/Back.text = "Voltar"
+		$Label.text = "Selecione a Linguagem"
+		$Label/Label.text = "Selecione a Linguagem"
+	else:
+		$Buttons/Back.text = "Back"
+		$Label.text = "Select Language"
+		$Label/Label.text = "Select Language"

@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "NinePatchRect",
-"class": "DialogBox",
-"language": "GDScript",
-"path": "res://script/DialogBox.gd"
-}, {
 "base": "Resource",
 "class": "Dialogue",
 "language": "GDScript",
@@ -35,7 +30,6 @@ _global_script_classes=[ {
 "path": "res://script/Player.gd"
 } ]
 _global_script_class_icons={
-"DialogBox": "",
 "Dialogue": "",
 "GDSerComm": "",
 "Level": "",

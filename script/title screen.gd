@@ -14,6 +14,7 @@ func _process(delta):
 	
 	var _button = _buttons[selected] as Button
 	_button.grab_focus()
+	changeLanguage()
 	
 func _on_START_pressed():
 	print("Start foi pressionado")
@@ -24,3 +25,15 @@ func _on_EXIT_pressed():
 
 func _on_Portugues_pressed():
 	Global.transitionToScene("res://scenes/Language.tscn")
+
+func changeLanguage():
+	if Global.languagePtBr == true:
+		$Buttons/START.text = "Iniciar"
+		$Buttons/LANGUAGE.text = "Acessibilidade"
+		$Buttons/EXIT.text = "Sair"
+	else:
+		$Buttons/START.text = "Start"
+		$Buttons/LANGUAGE.text = "Options"
+		$Buttons/EXIT.text = "Exit"
+		
+		

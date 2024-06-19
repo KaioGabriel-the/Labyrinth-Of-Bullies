@@ -6,7 +6,7 @@ var newMessage = []
 func _ready():
 	if Global.languagePtBr:
 		newMessage = [
-			"Arraste o potenciometro para abrir as portas"
+			"Arraste o potenciômetro para abrir as portas"
 		]
 	else:
 		newMessage = [
