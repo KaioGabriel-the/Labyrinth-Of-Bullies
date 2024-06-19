@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/deadfrog/Deadfrog Personal Use Only.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Default_Make_a_normal_school_corridor_but_one_that_gives_the_f_1.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/transitionFadeOut.tscn" type="PackedScene" id=3]
 [ext_resource path="res://script/title screen.gd" type="Script" id=5]
 
 [sub_resource type="Gradient" id=7]
@@ -36,18 +37,9 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -319.0
-margin_right = 1280.0
-margin_bottom = 705.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -76,9 +68,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Label"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.509852
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.509852
 margin_left = -346.0
 margin_top = -101.5
 margin_right = 816.0
@@ -141,6 +133,8 @@ custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_fonts/font = SubResource( 3 )
 action_mode = 0
 text = "EXIT"
+
+[node name="transitionFadeOut" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="Buttons/START" to="." method="_on_START_pressed"]
 [connection signal="pressed" from="Buttons/LANGUAGE" to="." method="_on_Portugues_pressed"]

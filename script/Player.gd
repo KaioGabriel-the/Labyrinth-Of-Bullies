@@ -150,5 +150,5 @@ func _on_death_animation_finished():
 		startOnce = true
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/Game over.tscn")
+	Global.transitionToScene("res://scenes/Game over.tscn")
 

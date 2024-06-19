@@ -16,11 +16,11 @@ func _process(delta):
 	_button.grab_focus()
 	
 func _on_START_pressed():
-	Global.world1 = true
-	get_tree().change_scene("res://scenes/WorldTutorial.tscn")
+	print("Start foi pressionado")
+	Global.transitionToScene("res://scenes/WorldTutorial.tscn")
 
 func _on_EXIT_pressed():
 	get_tree().quit()
 
 func _on_Portugues_pressed():
-	get_tree().change_scene("res://scenes/Language.tscn")
+	Global.transitionToScene("res://scenes/Language.tscn")
