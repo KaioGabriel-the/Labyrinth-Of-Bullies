@@ -1,6 +1,6 @@
 extends Node
 
-var camera
+var camera : Camera2D
 var world1 : bool = false
 var languagePtBr : bool = false
 var player
