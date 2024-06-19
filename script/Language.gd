@@ -34,4 +34,4 @@ func _on_LanguageEUA_pressed():
 
 
 func _on_Back_pressed():
-	get_tree().change_scene("res://scenes/title screen.tscn")
+	Global.transitionToScene("res://scenes/title screen.tscn")

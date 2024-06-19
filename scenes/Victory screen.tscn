@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Default_Create_an_image_of_a_completely_white_child_as_if_it_w_1.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/deadfrog/Deadfrog Personal Use Only.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/transitionFadeOut.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 52
@@ -71,3 +72,5 @@ custom_fonts/font = SubResource( 1 )
 text = "You Escaped
 
 "
+
+[node name="transitionFadeOut" parent="." instance=ExtResource( 3 )]
