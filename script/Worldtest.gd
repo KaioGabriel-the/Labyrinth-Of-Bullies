@@ -7,6 +7,7 @@ onready var tileGray : TileMap = $Navigation2D/TileGray
 onready var tileGeneral : TileMap = $Navigation2D/TileGeneral
 
 func _ready():
+	AudioManager.playMusic("maze");
 	Global.worldNode = self;
 	pass
 
@@ -27,7 +28,8 @@ func _on_HSlider_value_changed(value):
 func _process(delta):
 	# Tratar valor do slider para pertencer ao intervalo 0.0 - 1.0.
 	var _grayScaleValue = Global.sliderValue / 100.0;
-	tileColored.material.set_shader_param("gray_scale_intensity", _grayScaleValue)
-	tileGray.material.set_shader_param("gray_scale_intensity", _grayScaleValue)
-	tileGeneral.material.set_shader_param("gray_scale_intensity", _grayScaleValue)
-	_on_HSlider_value_changed(Global.sliderValue)
+	tileColored.material.set_shader_param("gray_scale_intensity", _grayScaleValue);
+	tileGray.material.set_shader_param("gray_scale_intensity", _grayScaleValue);
+	tileGeneral.material.set_shader_param("gray_scale_intensity", _grayScaleValue);
+	_on_HSlider_value_changed(Global.sliderValue);
+

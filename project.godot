@@ -48,6 +48,7 @@ config/icon="res://icon.png"
 
 Global="*res://Global.gd"
 ArduinoEsplora="*res://scenes/ArduinoEsplora.tscn"
+AudioManager="*res://scenes/AudioManager.tscn"
 
 [display]
 

@@ -519,7 +519,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -8 )
 frames = SubResource( 115 )
 animation = "Death_Down"
-frame = 5
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
