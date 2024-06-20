@@ -13,4 +13,4 @@ void fragment() {
 
 [resource]
 shader = SubResource( 11 )
-shader_param/gray_scale_intensity = null
+shader_param/gray_scale_intensity = 1.0

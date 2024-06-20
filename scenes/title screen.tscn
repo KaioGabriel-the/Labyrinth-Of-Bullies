@@ -104,6 +104,7 @@ custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_fonts/font = SubResource( 2 )
 action_mode = 0
 text = "START"
+icon_align = 1
 
 [node name="LANGUAGE" type="Button" parent="Buttons"]
 margin_left = 300.0
@@ -118,7 +119,7 @@ custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_fonts/font = SubResource( 6 )
 action_mode = 0
 keep_pressed_outside = true
-text = "OPTIONS"
+text = "LANGUAGE"
 
 [node name="EXIT" type="Button" parent="Buttons"]
 anchor_left = 0.5

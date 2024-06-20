@@ -29,11 +29,11 @@ func _on_Portugues_pressed():
 func changeLanguage():
 	if Global.languagePtBr == true:
 		$Buttons/START.text = "Iniciar"
-		$Buttons/LANGUAGE.text = "Acessibilidade"
+		$Buttons/LANGUAGE.text = "Linguagem"
 		$Buttons/EXIT.text = "Sair"
 	else:
 		$Buttons/START.text = "Start"
-		$Buttons/LANGUAGE.text = "Options"
+		$Buttons/LANGUAGE.text = "Language"
 		$Buttons/EXIT.text = "Exit"
 		
 		
