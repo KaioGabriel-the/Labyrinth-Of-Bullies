@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/7.ogg-b5b09ec575de760a1c49aad7a98f17d8.oggstr"
+
+[deps]
+
+source_file="res://sfx/footSteps/7.ogg"
+dest_files=[ "res://.import/7.ogg-b5b09ec575de760a1c49aad7a98f17d8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

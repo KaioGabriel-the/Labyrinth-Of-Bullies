@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Perseguição no Labirinto.mp3-302a47862651d088eda33a8c2a95b133.mp3str"
+
+[deps]
+
+source_file="res://music/Perseguição no Labirinto.mp3"
+dest_files=[ "res://.import/Perseguição no Labirinto.mp3-302a47862651d088eda33a8c2a95b133.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
