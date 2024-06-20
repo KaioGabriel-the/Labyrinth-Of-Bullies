@@ -46,36 +46,32 @@ onready var animation : AnimatedSprite = $AnimatedSprite
 onready var timer : Timer = $Timer
 
 func _ready():
-	Global.player = self
+	Global.player = self;
 	# Connectando o sinal timeout do timer
-	timer.connect("timeout", self, "_on_Timer_timeout")
+	timer.connect("timeout", self, "_on_Timer_timeout");
 
 func _process(delta):
 	# Obter estado de running
 	if velocity.length() == 0:
-		running = false
+		running = false;
 	else:
-		running = Input.is_action_pressed("run")
+		running = Input.is_action_pressed("run");
 	
-	# Obter direção do input do jogador.
-	if stunned == true:
-		_axis = Vector2.ZERO
-	if Global.usingEsplora == true:
-		ArduinoEsplora.axisXControl = clamp(ArduinoEsplora.axisXControl, -1.0, 1.0);
-		ArduinoEsplora.axisYControl = clamp(ArduinoEsplora.axisYControl, -1.0, 1.0);
+	# Obter direção do input do jogador.	
+	if Global.usingEsplora:
+		_axis = Vector2(ArduinoEsplora.axisXControl,ArduinoEsplora.axisYControl);
+	elif !stunned:
+		_axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down");
+	
+	# Se estiver stunnado, zera a velocidade.
+	if stunned:
+		_axis = Vector2.ZERO;
 		
-		print("Axis X: ", ArduinoEsplora.axisXControl)
-		print("Axis Y: ", ArduinoEsplora.axisYControl)
-		
-		_axis = Vector2(ArduinoEsplora.axisXControl,ArduinoEsplora.axisYControl)
-	elif Global.usingEsplora == false and stunned == false:
-		_axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
-	else:
-		_axis = Vector2.ZERO
-	var _newSpeed: float = 0.0
+	# Definir velocidade de movimento
+	var _newSpeed: float = 0.0;
 	if _axis != Vector2.ZERO:
-		direction = _axis
-		_newSpeed = moveSpeed if !running else runningSpeed
+		direction = _axis;
+		_newSpeed = moveSpeed if !running else runningSpeed;
 		
 	# Definir velocidade com base no input
 	var _sp = accel if _axis != Vector2.ZERO else fric
@@ -110,7 +106,7 @@ func _process(delta):
 		move_and_slide(velocity)
 	else:
 		modulate = Color.gray
-		print("Morri.")
+
 
 	manage_animation()
 	

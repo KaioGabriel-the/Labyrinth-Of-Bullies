@@ -9,8 +9,8 @@ var port = ""
 var baudRate = 9600
 var message_to_receive = "";
 var message_to_send
-var axisXControl = 0
-var axisYControl = 0
+var axisXControl: float = 0.0
+var axisYControl: float = 0.0
 
 ## Variável que comporta a mensagem acumulada proveniente do Esplora.
 var msg = "";
@@ -28,18 +28,22 @@ func _ready():
 	set_physics_process(true)
 
 func _physics_process(delta):
+	if PORT == null:
+		Global.usingEsplora = false;
+	
 	if PORT != null && PORT.get_available()>0:
 		Global.usingEsplora = true;
 		for i in range(PORT.get_available()):
-			var _currentChar = str(PORT.read())
+			var _currentChar = str(PORT.read());
+			if len(_currentChar) > 1:
+				# Esperávamos chegar um caractere, mas chegou um código ascii.
+				_currentChar = char(int(_currentChar)); # Convertamo-os portanto para CHAR.
 			if _currentChar == "]":
 				resolveMessage(msg);
 				msg = "";	# Mensagem volta a ficar vazia. Está pronta pra próxima.
 			else:
 				# Alimentar mensagem
 				msg += _currentChar;
-	else:
-		Global.usingEsplora = false;
 			
 func send_text():
 	var text=message_to_send.text.replace("\n",com.endline)
@@ -57,8 +61,10 @@ func resolveMessage(msg):
 					Global.sliderValueTo = _newSliderValue;
 			"ax":
 				axisXControl = float(separateMessage[1])
+				axisXControl = clamp(axisXControl, -1.0, 1.0);
 			"ay":
 				axisYControl = float(separateMessage[1])
+				axisYControl = clamp(axisYControl, -1.0, 1.0);
 			_:
 				pass
 				
