@@ -9,8 +9,10 @@ var port = ""
 var baudRate = 9600
 var message_to_receive = "";
 var message_to_send
-var axisXControl: float = 0.0
-var axisYControl: float = 0.0
+var axisXControl: float = 0.0;
+var axisYControl: float = 0.0;
+var buttonDown: int = 1;
+var buttonLeft
 
 ## Variável que comporta a mensagem acumulada proveniente do Esplora.
 var msg = "";
@@ -23,16 +25,12 @@ func _ready():
 		PORT.open(port,baudRate,1000,com.bytesz.SER_BYTESZ_8, com.parity.SER_PAR_NONE, com.stopbyte.SER_STOPB_ONE)
 		PORT.flush()
 	else:
-		Global.usingEsplora = false;
 		print("Não foi possível estabelecer uma comunicação com a porta desejada. Cheque se a porta desejada foi selecionada corretamente.")
 	set_physics_process(true)
 
 func _physics_process(delta):
-	if PORT == null:
-		Global.usingEsplora = false;
-	
 	if PORT != null && PORT.get_available()>0:
-		Global.usingEsplora = true;
+		Global.usingEsplora = true
 		for i in range(PORT.get_available()):
 			var _currentChar = str(PORT.read());
 			if len(_currentChar) > 1:
@@ -44,6 +42,9 @@ func _physics_process(delta):
 			else:
 				# Alimentar mensagem
 				msg += _currentChar;
+	else:
+		Global.usingEsplora = false;
+		
 			
 func send_text():
 	var text=message_to_send.text.replace("\n",com.endline)
@@ -65,6 +66,10 @@ func resolveMessage(msg):
 			"ay":
 				axisYControl = float(separateMessage[1])
 				axisYControl = clamp(axisYControl, -1.0, 1.0);
+			"bd":
+				buttonDown = int(separateMessage[1])
+			"bl":
+				buttonLeft = int(separateMessage[1])
 			_:
 				pass
 				

@@ -1,5 +1,6 @@
 extends NinePatchRect
 
+
 onready var text := $Text
 onready var timer = $Timer
 
@@ -18,7 +19,7 @@ func _process(delta):
 		hide()
 
 func _input(event):
-	if Global.world1 == false and event is InputEventKey and event.is_action_pressed("ui_accept"):
+	if Global.world1 == false and event.is_action_pressed("ui_accept") and Global.inputCooldown <= 0:
 		show_message()
 
 func add_message(_msg : Array) -> void:
