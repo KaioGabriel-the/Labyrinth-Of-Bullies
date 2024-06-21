@@ -2,23 +2,27 @@ extends CanvasLayer
 
 var selected : int = 0
 var paused : bool = false
+onready var buttons = $Buttons.get_children();
 
 func _ready():
 	visible = false
 
 func _process(delta):
-	var _buttons = $Buttons.get_children()
-
-	if _buttons.size() == 0:
+	if buttons.size() == 0:
 		return
 
-	var _dir = int(Input.is_action_just_pressed("ui_down")) - int(Input.is_action_just_pressed("ui_up"))
-	selected += _dir
-	selected = clamp(selected, 0, len(_buttons) - 1)
-
-	var _button = _buttons[selected] as Button
+	var _button = buttons[selected] as Button
 	_button.grab_focus()
 	changeLanguage()
+	
+func _input(event):
+	# Trocar opção selecionada de acordo com a direção selecionada
+	var _dir = int(event.is_action_pressed("ui_down")) - int(event.is_action_pressed("ui_up"));
+	selected += _dir;
+	selected = clamp(selected, 0, len(buttons) - 1);
+	
+	if event.is_action_pressed("ui_cancel"):
+		toggle_pause()
 
 func changeLanguage():
 	if Global.languagePtBr == true:
@@ -30,9 +34,6 @@ func changeLanguage():
 		$Buttons/Main_Menu.text = "Main Menu"
 		$Label.text = "Paused"
 
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		toggle_pause()
 
 func toggle_pause():
 	paused = !paused

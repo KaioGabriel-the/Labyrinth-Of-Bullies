@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+onready var buttons = $Buttons.get_children();
 export var selected: int = 0;
 
 func _ready():
@@ -7,23 +8,23 @@ func _ready():
 	selected = 0 if Global.languagePtBr else 1;
 
 func _process(delta):
-	var _buttons = $Buttons.get_children();
-	
-	if Input.is_action_just_pressed("ui_up"):
-		selected = 0;
-		
-	if Input.is_action_just_pressed("ui_down"):
-		selected = len(_buttons) - 1;
-	
-	var _dir = int(Input.is_action_just_pressed("ui_right")) - int(Input.is_action_just_pressed("ui_left"));
-	print("dir: ", _dir);
-	selected += _dir;
-	selected = clamp(selected, 0, len(_buttons) - 1);
-	
-	var _button = _buttons[selected] as Button;
+	var _button = buttons[selected] as Button;
 	print(_button);
 	_button.call_deferred("grab_focus");
 	changeLanguage();
+	
+func _input(event):
+	if Global.inputCooldown <= 0:
+		if event.is_action_pressed("ui_up"):
+			selected = 0;
+			
+		if event.is_action_pressed("ui_down"):
+			selected = len(buttons) - 1;
+		
+		# Trocar opção selecionada de acordo com a direção selecionada
+		var _dir = int(event.is_action_pressed("ui_right")) - int(event.is_action_pressed("ui_left"));
+		selected += _dir;
+		selected = clamp(selected, 0, len(buttons) - 1);
 
 func _on_LanguageBR_pressed():
 	Global.languagePtBr = true;

@@ -46,7 +46,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://scenes/Global.tscn"
 ArduinoEsplora="*res://scenes/ArduinoEsplora.tscn"
 AudioManager="*res://scenes/AudioManager.tscn"
 

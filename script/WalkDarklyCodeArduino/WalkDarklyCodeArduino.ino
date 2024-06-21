@@ -93,7 +93,19 @@ void loop() {
   Serial.print("ay");
   Serial.print(":");
   Serial.print(yAxis);
+  Serial.print("#");
+  
 
+  int buttonDown = Esplora.readButton(SWITCH_1);
+  int buttonLeft = Esplora.readButton(SWITCH_2);
+
+  Serial.print("bd");
+  Serial.print(":");
+  Serial.print(buttonDown);
+  Serial.print("bl");
+  Serial.print(":");
+  Serial.print(buttonLeft);
+  
   // Caractere de quebra de linha
   Serial.print("]");
 
