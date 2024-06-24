@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Run_Hide.mp3-c3de7bd2c854b533948eeaf7a9878943.mp3str"
+
+[deps]
+
+source_file="res://music/Run_Hide.mp3"
+dest_files=[ "res://.import/Run_Hide.mp3-c3de7bd2c854b533948eeaf7a9878943.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

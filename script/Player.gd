@@ -1,7 +1,8 @@
 extends KinematicBody2D
+class_name Player
 
-var moveSpeed : float = 120.0
-var runningSpeed : float = 240.0
+var moveSpeed : float = 50
+var runningSpeed : float = 70
 var direction : Vector2 = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
 var actualSpeed: float = 0.0
@@ -45,34 +46,32 @@ onready var animation : AnimatedSprite = $AnimatedSprite
 onready var timer : Timer = $Timer
 
 func _ready():
-	Global.player = self
+	Global.player = self;
 	# Connectando o sinal timeout do timer
-	timer.connect("timeout", self, "_on_Timer_timeout")
+	timer.connect("timeout", self, "_on_Timer_timeout");
 
 func _process(delta):
 	# Obter estado de running
 	if velocity.length() == 0:
-		running = false
+		running = false;
 	else:
-		running = Input.is_action_pressed("run")
+		running = Input.is_action_pressed("run");
 	
-	# Obter direção do input do jogador.
-	if stunned == true:
-		_axis = Vector2.ZERO
-	if Global.usingEsplora == true:
-		ArduinoEsplora.axisXControl = clamp(ArduinoEsplora.axisXControl, -1.0, 1.0);
-		ArduinoEsplora.axisYControl = clamp(ArduinoEsplora.axisYControl, -1.0, 1.0);
+	# Obter direção do input do jogador.	
+	if Global.usingEsplora:
+		_axis = Vector2(ArduinoEsplora.axisXControl,ArduinoEsplora.axisYControl);
+	elif !stunned:
+		_axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down");
+	
+	# Se estiver stunnado, zera a velocidade.
+	if stunned:
+		_axis = Vector2.ZERO;
 		
-		print("Axis X: ", ArduinoEsplora.axisXControl)
-		print("Axis Y: ", ArduinoEsplora.axisYControl)
-		
-		_axis = Vector2(ArduinoEsplora.axisXControl,ArduinoEsplora.axisYControl)
-	else:
-		_axis = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
-	var _newSpeed: float = 0.0
+	# Definir velocidade de movimento
+	var _newSpeed: float = 0.0;
 	if _axis != Vector2.ZERO:
-		direction = _axis
-		_newSpeed = moveSpeed if !running else runningSpeed
+		direction = _axis;
+		_newSpeed = moveSpeed if !running else runningSpeed;
 		
 	# Definir velocidade com base no input
 	var _sp = accel if _axis != Vector2.ZERO else fric
@@ -106,8 +105,8 @@ func _process(delta):
 		modulate = Color.white
 		move_and_slide(velocity)
 	else:
-		modulate = Color.black
-		print("Morri.")
+		modulate = Color.gray
+
 
 	manage_animation()
 	
@@ -117,6 +116,7 @@ func manage_animation():
 	_state = "run" if running else _state
 	if stunned == true:
 		_state = "death"
+		
 		play_death_animation()
 		
 	# Obter em graus o valor da direção
@@ -146,5 +146,5 @@ func _on_death_animation_finished():
 		startOnce = true
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/Game over.tscn")
+	Global.transitionToScene("res://scenes/Game over.tscn")
 

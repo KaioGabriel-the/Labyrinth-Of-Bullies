@@ -2,13 +2,14 @@
 
 [ext_resource path="res://assets/fonts/deadfrog/Deadfrog Personal Use Only.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Default_Make_a_normal_school_corridor_but_one_that_gives_the_f_1.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/transitionFadeOut.tscn" type="PackedScene" id=3]
 [ext_resource path="res://script/title screen.gd" type="Script" id=5]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=7]
 colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture2D" id=5]
-gradient = SubResource( 4 )
+gradient = SubResource( 7 )
 fill_to = Vector2( 0, 1 )
 
 [sub_resource type="DynamicFont" id=1]
@@ -21,18 +22,13 @@ size = 42
 outline_color = Color( 1, 0.996078, 0.996078, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="DynamicFont" id=6]
+size = 42
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 42
 font_data = ExtResource( 1 )
-
-[sub_resource type="GDScript" id=7]
-script/source = "extends Button
-
-func _on_EXIT_pressed() -> void:
-	get_tree().quit()
-"
 
 [node name="title screen" type="CanvasLayer"]
 script = ExtResource( 5 )
@@ -41,24 +37,18 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -319.0
-margin_right = 1280.0
-margin_bottom = 705.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 5 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -72,12 +62,15 @@ margin_bottom = 69.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "LABYRINTH OF BULLIES"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="Label"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.509852
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.509852
 margin_left = -346.0
 margin_top = -101.5
 margin_right = 816.0
@@ -86,6 +79,9 @@ custom_colors/font_color = Color( 0.956863, 0.105882, 0.105882, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "LABYRINTH OF BULLIES
 "
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Buttons" type="Control" parent="."]
 margin_right = 40.0
@@ -96,32 +92,55 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 377.0
+margin_left = 279.0
 margin_top = 261.0
-margin_right = 520.0
+margin_right = 661.0
 margin_bottom = 310.0
+mouse_filter = 2
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_colors/font_color = Color( 1, 0.972549, 0.972549, 1 )
 custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_fonts/font = SubResource( 2 )
 action_mode = 0
 text = "START"
-script = SubResource( 6 )
+icon_align = 1
+
+[node name="LANGUAGE" type="Button" parent="Buttons"]
+margin_left = 300.0
+margin_top = 344.0
+margin_right = 680.0
+margin_bottom = 393.0
+mouse_filter = 2
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0.854902, 0.227451, 0.14902, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
+custom_fonts/font = SubResource( 6 )
+action_mode = 0
+keep_pressed_outside = true
+text = "LANGUAGE"
 
 [node name="EXIT" type="Button" parent="Buttons"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 398.0
-margin_top = 329.0
-margin_right = 504.0
-margin_bottom = 378.0
+margin_left = 281.0
+margin_top = 390.0
+margin_right = 661.0
+margin_bottom = 439.0
+mouse_filter = 2
+custom_colors/font_color_focus = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.854902, 0.227451, 0.14902, 1 )
 custom_fonts/font = SubResource( 3 )
 action_mode = 0
 text = "EXIT"
-script = SubResource( 7 )
+
+[node name="transitionFadeOut" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [connection signal="pressed" from="Buttons/START" to="." method="_on_START_pressed"]
+[connection signal="pressed" from="Buttons/LANGUAGE" to="." method="_on_Portugues_pressed"]
 [connection signal="pressed" from="Buttons/EXIT" to="." method="_on_EXIT_pressed"]

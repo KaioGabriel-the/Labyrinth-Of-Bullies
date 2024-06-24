@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=11]
+code = "shader_type canvas_item;
+uniform float gray_scale_intensity : hint_range(0.0, 1.0);
+
+void fragment() {
+    COLOR = texture(TEXTURE, UV);
+    float lumi = (COLOR.r + COLOR.g + COLOR.b) / 3.0;
+    COLOR.rgb = mix(COLOR.rgb, vec3(lumi), gray_scale_intensity);
+}
+"
+
+[resource]
+shader = SubResource( 11 )
+shader_param/gray_scale_intensity = 1.0

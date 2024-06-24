@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LanyrinthWalk.mp3-3bc7d1096bae62ffeeedd40ce842dafb.mp3str"
+
+[deps]
+
+source_file="res://music/LanyrinthWalk.mp3"
+dest_files=[ "res://.import/LanyrinthWalk.mp3-3bc7d1096bae62ffeeedd40ce842dafb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
