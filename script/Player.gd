@@ -52,10 +52,7 @@ func _ready():
 
 func _process(delta):
 	# Obter estado de running
-	if velocity.length() == 0:
-		running = false;
-	else:
-		running = Input.is_action_pressed("run");
+	
 	
 	# Obter direção do input do jogador.	
 	if Global.usingEsplora:
@@ -76,6 +73,7 @@ func _process(delta):
 	# Definir velocidade com base no input
 	var _sp = accel if _axis != Vector2.ZERO else fric
 	actualSpeed = move_toward(actualSpeed, _newSpeed, _sp)
+	print(actualSpeed)
 	velocity = actualSpeed * _axis
 	
 	# Checar stun
@@ -113,10 +111,9 @@ func _process(delta):
 func manage_animation():
 	# Identificar que estado estamos (idle, walk ou run).
 	var _state = "idle" if velocity.length() == 0 else "walk"
-	_state = "run" if running else _state
-	if stunned == true:
+	_state = "run" if running and velocity.length() != 0 else _state
+	if stunned:
 		_state = "death"
-		
 		play_death_animation()
 		
 	# Obter em graus o valor da direção
@@ -127,6 +124,7 @@ func manage_animation():
 	var _animToPlay = spritesDict[int(_key)][_state]
 	
 	animation.play(_animToPlay)
+
 		
 func play_death_animation():
 	var _degrees = abs(rad2deg(direction.angle()) + 90)
@@ -147,4 +145,13 @@ func _on_death_animation_finished():
 
 func _on_Timer_timeout():
 	Global.transitionToScene("res://scenes/Game over.tscn")
+	
+func _input(event):
+	if velocity.length() == 0:
+		running = false;
+	else:
+		if running == event.is_action_pressed("run"):
+			running = false
+		elif running == false:
+			running = event.is_action_pressed("run");
 
