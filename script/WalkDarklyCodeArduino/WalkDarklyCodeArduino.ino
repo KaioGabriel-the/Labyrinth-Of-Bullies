@@ -97,14 +97,20 @@ void loop() {
   
 
   int buttonDown = Esplora.readButton(SWITCH_1);
-  int buttonLeft = Esplora.readButton(SWITCH_2);
+  int buttonLeft = Esplora.readButton(SWITCH_3);
+  int joystickButton = Esplora.readJoystickButton();
 
   Serial.print("bd");
   Serial.print(":");
   Serial.print(buttonDown);
+  Serial.print("#");
   Serial.print("bl");
   Serial.print(":");
   Serial.print(buttonLeft);
+  Serial.print("#");
+  Serial.print("jb");
+  Serial.print(":");
+  Serial.print(joystickButton);
   
   // Caractere de quebra de linha
   Serial.print("]");

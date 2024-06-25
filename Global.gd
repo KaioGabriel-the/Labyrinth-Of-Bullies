@@ -62,6 +62,19 @@ func _process(delta):
 			get_tree().input_event(event);
 			Global.inputCooldown = Global.INPUT_COOLDOWN;
 			
+		if ArduinoEsplora.buttonLeft == 0 and usingEsplora:
+			var event = InputEventAction.new()
+			event.action = "ui_cancel"
+			event.pressed = true
+			get_tree().input_event(event)
+			Global.inputCooldown = Global.INPUT_COOLDOWN;
+			
+		if ArduinoEsplora.joystickButton == 0 and usingEsplora:
+			var event = InputEventAction.new()
+			event.action = "run"
+			event.pressed = true
+			get_tree().input_event(event)
+			
 	# Aproximar valor atual da barra para o valor destino.
 	var _diff = abs(sliderValueTo - sliderValue);
 	var _sp = _diff / 10;
