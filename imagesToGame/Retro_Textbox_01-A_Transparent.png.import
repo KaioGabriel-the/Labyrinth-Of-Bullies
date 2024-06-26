@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BandeirinhaBR-removebg-preview.png-3313b7fa43ae2883df6f556245875d59.stex"
+path="res://.import/Retro_Textbox_01-A_Transparent.png-659f425168fc1b00d715c5df0904454a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BandeirinhaBR-removebg-preview.png"
-dest_files=[ "res://.import/BandeirinhaBR-removebg-preview.png-3313b7fa43ae2883df6f556245875d59.stex" ]
+source_file="res://imagesToGame/Retro_Textbox_01-A_Transparent.png"
+dest_files=[ "res://.import/Retro_Textbox_01-A_Transparent.png-659f425168fc1b00d715c5df0904454a.stex" ]
 
 [params]
 

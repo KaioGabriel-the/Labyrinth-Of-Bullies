@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://script/Worldtest.gd" type="Script" id=5]
-[ext_resource path="res://blackWhite.tres" type="Material" id=6]
+[ext_resource path="res://shaders/blackWhite.tres" type="Material" id=6]
 [ext_resource path="res://assets/School Daze Tileset/School Daze/Stage 1/Maps/Hallway/Layer 1.png" type="Texture" id=7]
 [ext_resource path="res://script/Navigation2D.gd" type="Script" id=8]
 [ext_resource path="res://script/TeleportWorld1.gd" type="Script" id=9]

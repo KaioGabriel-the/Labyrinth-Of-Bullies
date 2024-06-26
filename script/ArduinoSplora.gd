@@ -12,7 +12,8 @@ var message_to_send
 var axisXControl: float = 0.0;
 var axisYControl: float = 0.0;
 var buttonDown: int = 1;
-var buttonLeft
+var buttonLeft : int = 1;
+var joystickButton : int = 1;
 
 ## Variável que comporta a mensagem acumulada proveniente do Esplora.
 var msg = "";
@@ -74,6 +75,8 @@ func resolveMessage(msg):
 				buttonDown = int(separateMessage[1])
 			"bl":
 				buttonLeft = int(separateMessage[1])
+			"jb":
+				joystickButton = int(separateMessage[1])
 			_:
 				pass
 				

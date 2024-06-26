@@ -40,9 +40,12 @@ _global_script_class_icons={
 
 config/name="Walk Darkly"
 run/main_scene="res://scenes/title screen.tscn"
-boot_splash/image="res://Labiras_Logo.png"
+boot_splash/image="res://imagesToGame/Labiras_Logo.png"
 boot_splash/fullsize=false
-config/icon="res://icon.png"
+
+[audio]
+
+default_bus_layout="res://music/default_bus_layout.tres"
 
 [autoload]
 
@@ -136,4 +139,4 @@ quality/shadows/filter_mode=0
 quality/filters/anisotropic_filter_level=1
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Environment.tres"
