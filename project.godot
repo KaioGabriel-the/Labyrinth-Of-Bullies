@@ -38,10 +38,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Walk Darkly"
+config/name="LARYRINTH OF BULLIES"
+config/description="The game demonstrates the challenge of escaping a maze, presenting bullying as its main theme, in which the protagonist feels the need to escape the school environment, thanks to the theme event."
 run/main_scene="res://scenes/title screen.tscn"
 boot_splash/image="res://imagesToGame/Labiras_Logo.png"
 boot_splash/fullsize=false
+config/icon="res://imagesToGame/GameCover.png"
 
 [audio]
 

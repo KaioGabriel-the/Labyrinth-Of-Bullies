@@ -139,7 +139,6 @@ action_mode = 0
 text = "EXIT"
 
 [node name="transitionFadeOut" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [connection signal="pressed" from="Buttons/START" to="." method="_on_START_pressed"]
 [connection signal="pressed" from="Buttons/LANGUAGE" to="." method="_on_Portugues_pressed"]
