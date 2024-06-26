@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Labiras_Logo.png-db815e09e5b7aaa32fa2d173efab57d5.stex"
+path="res://.import/Labiras_Logo.png-b8454e53a2f9f8490faab2d94c1c29d3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Labiras_Logo.png"
-dest_files=[ "res://.import/Labiras_Logo.png-db815e09e5b7aaa32fa2d173efab57d5.stex" ]
+source_file="res://imagesToGame/Labiras_Logo.png"
+dest_files=[ "res://.import/Labiras_Logo.png-b8454e53a2f9f8490faab2d94c1c29d3.stex" ]
 
 [params]
 

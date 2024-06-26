@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BandeirinhaEUA-removebg-preview.png-e52e8d7a9f5fe4e1079492c008389b57.stex"
+path="res://.import/BandeirinhaEUA-removebg-preview.png-d6908f561fca391e4e477256d364956e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BandeirinhaEUA-removebg-preview.png"
-dest_files=[ "res://.import/BandeirinhaEUA-removebg-preview.png-e52e8d7a9f5fe4e1079492c008389b57.stex" ]
+source_file="res://imagesToGame/BandeirinhaEUA-removebg-preview.png"
+dest_files=[ "res://.import/BandeirinhaEUA-removebg-preview.png-d6908f561fca391e4e477256d364956e.stex" ]
 
 [params]
 
